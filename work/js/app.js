@@ -9,21 +9,21 @@ enter.addEventListener("click",function(){
   .then(response => response.json())
   .then(weather => {
     const one = document.getElementById("publishingOffice");
-    one.innerHTML += `${weather[0].publishingOffice}`;
+    one.lastElementChild.textContent = weather[0].publishingOffice;
     const two = document.getElementById("reportDatetime");
-    two.innerHTML += `${weather[0].reportDatetime}`;
+    two.lastElementChild.textContent = weather[0].reportDatetime;
     const three = document.getElementById("targetArea");
-    three.innerHTML += `${weather[0].timeSeries[0].areas[0].area.name}`;
+    three.lastElementChild.textContent = weather[0].timeSeries[0].areas[0].area.name;
     const four = document.getElementById("todayHighTemperature");
-    four.innerHTML += `${weather[1].tempAverage.areas[0].max}℃`;
+    four.lastElementChild.textContent = weather[1].tempAverage.areas[0].max+"℃";
     const five = document.getElementById("todayLowTemperature");
-    five.innerHTML += `${weather[1].tempAverage.areas[0].min}℃`;
+    five.lastElementChild.textContent = weather[1].tempAverage.areas[0].min+"℃";
     const six = document.getElementById("today");
-    six.innerHTML += `${weather[0].timeSeries[0].areas[0].weathers[0]}`;
+    six.lastElementChild.textContent = weather[0].timeSeries[0].areas[0].weathers[0];
     const seven = document.getElementById("tomorrow");
-    seven.innerHTML += `${weather[0].timeSeries[0].areas[0].weathers[1]}`;
+    seven.lastElementChild.textContent = weather[0].timeSeries[0].areas[0].weathers[1];
     const eight = document.getElementById("dayAfterTomorrow");
-    eight.innerHTML += `${weather[0].timeSeries[0].areas[0].weathers[2]}`;
+    eight.lastElementChild.textContent = weather[0].timeSeries[0].areas[0].weathers[2];
   })
   .catch(error => console.error('エラー:', error));
 })
